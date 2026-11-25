@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BundleDesk — REQUEST_INSTALL_PACKAGES Core Feature Demo</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 36px 16px 56px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: #0f172a;
+      color: #f8fafc;
+      line-height: 1.6;
+    }
+    main {
+      max-width: 780px;
+      margin: 0 auto;
+      background: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 20px;
+      padding: 32px 28px;
+    }
+    .badge {
+      display: inline-block;
+      background: #1d4ed8;
+      color: #e0f2fe;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 999px;
+      margin-bottom: 12px;
+    }
+    h1 {
+      margin: 0 0 8px;
+      font-size: 1.65rem;
+      line-height: 1.25;
+    }
+    .subtitle {
+      color: #cbd5e1;
+      margin: 0 0 24px;
+      font-size: 0.98rem;
+    }
+    .video-wrap {
+      background: #020617;
+      border: 1px solid #334155;
+      border-radius: 14px;
+      overflow: hidden;
+      margin-bottom: 16px;
+      text-align: center;
+    }
+    video {
+      display: block;
+      width: 100%;
+      max-height: 680px;
+      background: #020617;
+    }
+    .video-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 28px;
+      font-size: 0.9rem;
+      color: #94a3b8;
+    }
+    a {
+      color: #60a5fa;
+      text-decoration: none;
+    }
+    a:hover { text-decoration: underline; }
+    h2 {
+      font-size: 1.12rem;
+      margin: 0 0 12px;
+      color: #f8fafc;
+    }
+    ol {
+      margin: 0 0 24px;
+      padding-left: 20px;
+      color: #cbd5e1;
+    }
+    ol li {
+      margin-bottom: 10px;
+    }
+    ol li strong {
+      color: #f8fafc;
+    }
+    code {
+      background: #0f172a;
+      border: 1px solid #334155;
+      padding: 2px 6px;
+      border-radius: 6px;
+      font-size: 0.88em;
+      color: #93c5fd;
+    }
+    .footer {
+      border-top: 1px solid #334155;
+      padding-top: 18px;
+      margin-top: 8px;
+      font-size: 0.86rem;
+      color: #94a3b8;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: space-between;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <span class="badge">Google Play App Review Demo</span>
+    <h1>BundleDesk: SplitAPK Installer</h1>
+    <p class="subtitle">
+      Core feature walkthrough demonstrating how <code>com.nativeinvaders.bundledesk</code> uses
+      <code>REQUEST_INSTALL_PACKAGES</code> strictly for user-initiated local package file management and installation.
+    </p>
+
+    <div class="video-wrap">
+      <video controls playsinline preload="metadata">
+        <source src="./demo.mp4" type="video/mp4" />
+        Your browser does not support embedded MP4 playback.
+        <a href="./demo.mp4">Open demo.mp4 directly</a>.
+      </video>
+    </div>
+
+    <div class="video-actions">
+      <span>Direct file: <a href="./demo.mp4">demo.mp4</a></span>
+      <span>Package ID: <code>com.nativeinvaders.bundledesk</code></span>
+    </div>
+
+    <h2>What This Video Demonstrates</h2>
+    <ol>
+      <li>
+        <strong>Launching BundleDesk:</strong> The user opens BundleDesk from Android and views the local package management dashboard.
+      </li>
+      <li>
+        <strong>User-Initiated File Selection:</strong> The user taps to pick a local <code>.apk</code>, <code>.apks</code>, <code>.xapk</code>, <code>.apkm</code>, or <code>.zip</code> archive via Android's system file picker (Storage Access Framework). BundleDesk does not download or install apps automatically.
+      </li>
+      <li>
+        <strong>Local Package &amp; Split Inspection:</strong> BundleDesk reads the archive on-device to show matched ABI/density split APKs, compatibility status, and SHA-256 digest before installation.
+      </li>
+      <li>
+        <strong>Native Android PackageInstaller Flow:</strong> When the user explicitly taps <strong>Install</strong>, BundleDesk checks <code>canRequestPackageInstalls()</code> (guiding the user to Android's <em>Install unknown apps</em> setting if needed) and hands the selected package stream to Android's native <code>PackageInstaller</code> system confirmation dialog.
+      </li>
+    </ol>
+
+    <div class="footer">
+      <span>Developer: Native Invaders &middot; <a href="mailto:Johnathonst@gmail.com">Johnathonst@gmail.com</a></span>
+      <span><a href="./index.html">Home</a> &middot; <a href="./privacy-policy.html">Privacy Policy</a></span>
+    </div>
+  </main>
+</body>
+</html>
